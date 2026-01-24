@@ -16,6 +16,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "baseHref": "/portafolioAngular/",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -38,8 +39,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "25kB",
+                  "maximumError": "50kB"
                 }
               ],
               "outputHashing": "all"
@@ -66,6 +67,13 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "buildTarget": "portafolioAngular:build:production",
+            "baseHref": "/portafolioAngular/"
+          }
         }
       }
     }
